@@ -43,11 +43,13 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY config /app/config
 COPY crontab /app/crontab
 COPY startup.sh /app/startup.sh
+COPY apply-vacancies.sh /app/apply-vacancies.sh
 
 # Настройка крона
 RUN touch /var/log/cron.log && chown docker:docker /var/log/cron.log && \
   dos2unix /app/crontab && \
   chmod +x /app/startup.sh && \
+  chmod +x /app/apply-vacancies.sh && \
   chmod 0644 /app/crontab && \
   crontab -u docker /app/crontab
 

@@ -310,7 +310,7 @@ docker@1897bdd7c80b:/app$
 
 # Пример с фильтрацией по исключаемым словам
 /usr/local/bin/python -m hh_applicant_tool apply-vacancies \
-  -l letter.txt \
+  -L letter.txt \
   --excluded-filter "fullstack|junior|php" # укажите любые аргументы
 ```
 
