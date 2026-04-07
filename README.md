@@ -77,6 +77,7 @@
   - [Стандартная установка](#стандартная-установка)
     - [Установка утилиты](#установка-утилиты)
     - [Дополнительные зависимости](#дополнительные-зависимости)
+    - [TUI-режим](#tui-режим)
   - [Авторизация](#авторизация)
   - [Описание команд](#описание-команд)
   - [Использование AI](#использование-ai)
@@ -416,6 +417,41 @@ hh-applicant-tool install
 ```
 
 Этот шаг необязателен. Все это нужно только для авторизации.
+
+### TUI-режим
+
+Начиная с версии с Textual TUI доступен отдельный entrypoint:
+
+```sh
+hh-applicant-tool-tui
+```
+
+Что есть в guided mode:
+
+- `whoami`
+- `list-resumes`
+- `apply-vacancies`
+- `reply-employers`
+- `settings`
+- `config`
+- `refresh-token`
+- `update-resumes`
+- `clear-skipped`
+- `test-session`
+- `logout`
+- `check-proxy`
+- `create-resume`
+- `clone-resume`
+
+Для редких и интерактивных команд используйте экран **Advanced runner**:
+
+- `authorize` / `auth` / `login`
+- `query` / `sql`
+- `migrate-db`
+- `call-api`
+- любые другие subcommand'ы, которые вы хотите передать в CLI без переписывания логики
+
+TUI не трогает бизнес-логику напрямую: он собирает аргументы и запускает существующий CLI через `python -m hh_applicant_tool ...`. Для интерактивных сценариев используйте **Live output** и поле отправки строк в `stdin`.
 
 ---
 
